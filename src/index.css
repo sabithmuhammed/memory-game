@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 100svh;
+    background: linear-gradient(500deg, rgb(235, 30, 30), rgb(31, 31, 194));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.timer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5%;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.445);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: monospace;
+    font-size: larger;
+    pointer-events: none;
+}
+
+.container {
+    width: fit-content;
+    height: fit-content;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.card-container {
+    width: 120px;
+    height: 160px;
+    perspective: 1000px; /* Enables 3D effect */
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+    cursor: pointer;
+    border-radius: 10px;
+    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.308);
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.card-front,
+.card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Hides the back when not visible */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card-front {
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.card-front img {
+    border-radius: 5px;
+}
+
+/* Flip the card on hover */
+.active .card {
+    transform: rotateY(-180deg);
+}
+
+@media screen and (max-width: 600px) {
+    .container {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 6px;
+    }
+    .card-container {
+        width: 90px;
+        height: 120px;
+    }
+    .card-front {
+        padding: 5px;
+    }
+}
+
+.modal {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(61, 57, 57, 0.473);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal > button {
+    padding: 8px 15px;
+    font-weight: 400;
+    font-size: larger;
+    border-radius: 10px;
+    border: none;
+    background-color: rgb(145, 75, 141);
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(255, 255, 255);
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.473);
+    cursor: pointer;
+    transition: all 3ms;
+}
+.modal > button:hover {
+    background-color: rgb(175, 38, 180);
+}
