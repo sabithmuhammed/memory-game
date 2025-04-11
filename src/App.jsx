@@ -95,8 +95,7 @@ function App() {
     const handleStart = () => {
         setShowModal(false);
         setTimerActive(true);
-        setRestart(() => false);
-        setRestart(() => true);
+        setRestart(!restart);
     };
 
     return (

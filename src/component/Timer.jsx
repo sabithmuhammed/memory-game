@@ -17,7 +17,7 @@ const Timer = ({ active, reset }) => {
     }, [active]);
 
     useEffect(() => {
-        if (reset) setTime(0);
+        setTime(0);
     }, [reset]);
 
     const formatTime = (time) => {
