@@ -106,7 +106,7 @@ function App() {
                     <button>{win ? "Restart" : "Play"}</button>
                 </div>
             )}
-            <Timer active={timerActive} />
+            <Timer active={timerActive} reset={restart} />
             <div className="container">
                 {images?.map((item, index) => (
                     <Card
