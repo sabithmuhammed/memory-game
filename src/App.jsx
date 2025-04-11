@@ -102,8 +102,10 @@ function App() {
     return (
         <>
             {showModal && (
-                <div className="modal" onClick={handleStart}>
-                    <button>{win ? "Restart" : "Play"}</button>
+                <div className="modal">
+                    <button onClick={handleStart}>
+                        {win ? "Restart" : "Play"}
+                    </button>
                 </div>
             )}
             <Timer active={timerActive} reset={restart} />
